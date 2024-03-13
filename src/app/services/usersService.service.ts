@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { IUser } from '../interfaces/iuser.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +16,10 @@ export class UsersServiceService {
   getAll(page: number = 1): Promise<any> {
     return lastValueFrom(this.httpClient.get<any>(`${this.baseUrl}?page=${page}`))
 
+  }
+
+  // Traer el id de cada usuario:
+  getById(id: string): Promise<any> {
+    return lastValueFrom(this.httpClient.get<any>(`${this.baseUrl}/${id}`))
   }
 }

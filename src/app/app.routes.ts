@@ -6,7 +6,7 @@ export const routes: Routes = [
     // Definiendo las rutas de la aplicacion:
     { path: "", pathMatch: "full", redirectTo: "home"},
     { path: "home", component: UsersListComponent },
-    { path: "users/:id", component: UserViewComponent }
+    { path: "user/:idUser", component: UserViewComponent },
 
     
 ];
