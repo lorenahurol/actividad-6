@@ -1,0 +1,11 @@
+<div class="row">
+    <!-- Recorrer y pintar el array de usuarios -->
+    @for (user of arrUsers; track user) {
+    <article class="col-12 col-md-3 mb-4">
+        <app-user-card [myUser]="user"></app-user-card>
+    </article>
+    }
+
+    <button class="btn btn-sm btn-success" (click)="previousPage()">Atras</button>
+    <button class="btn btn-sm btn-danger" (click)="nextPage()">Siguiente</button>
+</div>
