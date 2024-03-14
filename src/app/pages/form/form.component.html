@@ -1,0 +1,29 @@
+<section>
+    <h4>{{type}} USUARIO</h4>
+    
+    <!--Formulario de tipo Model-->
+    <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
+        <div>
+            <label class="form-label" for="first_name">Nombre:</label>
+            <input class="form-control" type="text" id="first_name" formControlName="first_name">
+        </div>
+        <div>
+            <label class="form-label" for="last_name">Apellido:</label>
+            <input class="form-control" type="text" id="last_name" formControlName="last_name">
+        </div>
+        <div>
+            <label class="form-label" for="username">Nombre de usuario:</label>
+            <input class="form-control" type="text" id="username" formControlName="username">
+        </div>
+        <div>
+            <label class="form-label" for="email">Email:</label>
+            <input class="form-control" type="text" id="email" formControlName="email">
+        </div>
+        <div>
+            <label class="form-label" for="image">Imagen:</label>
+            <input class="form-control" type="text" id="image" formControlName="image">
+        </div>
+        <input class="btn btn-success mt-3" type="submit" value="Enviar" [disabled]="!userForm.valid">
+
+    </form>
+</section>

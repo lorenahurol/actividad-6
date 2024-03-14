@@ -7,6 +7,7 @@
     
     <!-- Botonera con Iconos -->
     <div class="card-body">
-        <a [routerLink]="['/user', myUser._id]" class="btn btn-secondary">Ver Detalle</a>
+        <!-- Ocultar boton de Volver a listado-->
+        <app-botonera [parent]="'card'" [idUser]="myUser._id"></app-botonera>
     </div>
 </div>
