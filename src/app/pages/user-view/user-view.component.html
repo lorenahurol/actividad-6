@@ -2,18 +2,20 @@
     <div class="card shadow p-3">
         <div class="row">
             <figure class="col-12 col-md-3">
-                <img class="img-fluid" [src]="oneUser.image" [alt]="oneUser.first_name">
+                <!-- Añado ? para solucionar error core.mjs:7494 ERROR TypeError: Cannot read properties of undefined (reading 'image')
+                at UserViewComponent_Template (user-view.component.html:5:40) -->
+                <img [src]="oneUser?.image" [alt]="oneUser?.first_name" class="img-fluid">
             </figure>
             <div class="col-12 col-md-9">
-                <h2>{{oneUser.first_name}}</h2>
-                <h2>{{oneUser.last_name}}</h2>
+                <h2>{{oneUser?.first_name}}</h2>
+                <h2>{{oneUser?.last_name}}</h2>
                 <hr>
-                <h5>Nombre de usuario: {{oneUser.username}}</h5>
-                <p>Email: {{oneUser.email}}</p>
+                <h5>Nombre de usuario: {{oneUser?.username}}</h5>
+                <p>Email: {{oneUser?.email}}</p>
             </div>
         </div>
         <!-- Botonera: Eliminar, Actualizar, Volver a Listado -->
         <!-- Ocultar boton de Ver Detalle-->
-        <app-botonera [parent]="'view'" [idUser]="oneUser._id"></app-botonera>
+        <app-botonera [parent]="'view'" [idUser]="oneUser?._id"></app-botonera>
     </div>
 </section>

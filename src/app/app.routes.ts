@@ -10,5 +10,5 @@ export const routes: Routes = [
     { path: "user/:idUser", component: UserViewComponent },
     // Rutas para la creacion y actualizacion de usuarios (Reutilizando el componente de formulario):
     { path: "newuser", component: FormComponent },
-    { path: "updateuser/:id", component: FormComponent}
+    { path: "update/user/:id", component: FormComponent}
 ];

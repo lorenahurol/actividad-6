@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { UsersServiceService } from '../../services/usersService.service';
 import { UserCardComponent } from '../../components/user-card/user-card.component';
-import { IUser } from '../../interfaces/iuser.interface';
 
 @Component({
   selector: 'app-users-list',

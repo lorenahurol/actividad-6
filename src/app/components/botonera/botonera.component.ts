@@ -1,6 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UsersServiceService } from '../../services/usersService.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-botonera',
@@ -14,29 +15,42 @@ export class BotoneraComponent {
   @Input() parent: string = ""
   @Input() idUser: string | undefined = ""
 
+
   // Inyectar el servicio:
   usersService = inject(UsersServiceService)
-
-  // ** ME DA ERROR DE ID ** //
- 
-  // Pantalla de confirmacion (borrar un usuario):
+   
   async deleteUser(id: string | undefined) {
     // Si el id no es undefined, realizar:
     if (id !== undefined) {
-      // Confirmar si queremos borrar el usuario:
-      let response = confirm(`¿Estas seguro que quieres borrar el usuario ${this.idUser}?`)
-    
-      // Si response === true - Borrar el usuario:
-      if (response) {
-        let deleteUser = await this.usersService.delete(id)
-        console.log(deleteUser)
-        // Crear la funcion delete en el servicio
-        // Confirmar por medio de alerta: 
-        if (deleteUser._id) {
-          alert(`Se ha eliminado correctamente el usuario ${this.idUser}`)
+      Swal.fire({
+        title: `Estas seguro de eliminar al usuario: ${this.idUser}?`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, estoy seguro"
+      }).then(async (result) => {
+        // Si OK === true - Borrar el usuario:
+        if (result.isConfirmed) {
+          try {
+            await this.usersService.delete(id)
+            console.log("Borrado")
+            Swal.fire({
+              title: "Borrado",
+              text: `Se ha borrado correctamente al usuario: ${this.idUser}`,
+              icon: "success"
+            })
+          } catch (error) {
+            console.error("Error al borrar el usuario:", error)
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Ha habido un problema. Intentálo de nuevo"
+            })
+          }
         }
-      }
+          
+      })
     }
   }
-
 }

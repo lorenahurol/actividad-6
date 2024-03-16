@@ -1,29 +1,61 @@
-<section>
     <h4>{{type}} USUARIO</h4>
     
+    <section class="container mt-2">
+        <!-- Validar el formulario (true or false) -->
+        <p class="d-none">STATE: {{userForm.valid}}</p>
     <!--Formulario de tipo Model-->
-    <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
-        <div>
+    <form [formGroup]="userForm" (ngSubmit)="getDataForm()" class="card p-4 mt-4 shadow">
+        <div class="p-2">
             <label class="form-label" for="first_name">Nombre:</label>
-            <input class="form-control" type="text" id="first_name" formControlName="first_name">
+            <input class="form-control" type="text" id="first_name" placeholder="Introduce un nombre:" formControlName="first_name">
+
+            <!-- Mostrar mensajes de error relacionados con los validadores -->
+            @if(checkControl("first_name", "required")) {
+                <p class="text-danger mt-2">Campo requerido</p>
+            }
+            @if(checkControl("first_name", "minlength")){
+                <p class="text-danger">Introduce al menos 3 caracteres</p>
+            }
         </div>
-        <div>
+        <div class="p-2">
             <label class="form-label" for="last_name">Apellido:</label>
-            <input class="form-control" type="text" id="last_name" formControlName="last_name">
+            <input class="form-control" type="text" id="last_name" placeholder="Introduce un apellido:" formControlName="last_name">
+
+            @if(checkControl("last_name", "required")) {
+            <p class="text-danger mt-2">Campo requerido</p>
+            }
+            @if(checkControl("last_name", "minlength")){
+            <p class="text-danger">Introduce al menos 3 caracteres</p>
+            }
         </div>
-        <div>
+        <div class="p-2">
             <label class="form-label" for="username">Nombre de usuario:</label>
-            <input class="form-control" type="text" id="username" formControlName="username">
+            <input class="form-control" type="text" id="username" placeholder="Introduce un username:" formControlName="username">
+
+            @if(checkControl("username", "required")) {
+            <p class="text-danger mt-2">Campo requerido</p>
+            }
+            @if(checkControl("username", "pattern")) {
+            <p class="text-danger mt-2">El nombre de usuario no puede contener espacios</p>
+            }
         </div>
-        <div>
+        <div class="p-2">
             <label class="form-label" for="email">Email:</label>
-            <input class="form-control" type="text" id="email" formControlName="email">
+            <input class="form-control" type="text" id="email" placeholder="Introduce un email:" formControlName="email">
+
+            @if(checkControl("email", "pattern")) {
+            <p class="text-danger mt-2">Introduce un email válido</p>
+            }
         </div>
-        <div>
+        <div class="p-2">
             <label class="form-label" for="image">Imagen:</label>
-            <input class="form-control" type="text" id="image" formControlName="image">
+            <input class="form-control" type="text" id="image" placeholder="Introduce una url de imagen:"  formControlName="image">
+
+            @if(checkControl("image", "required")) {
+            <p class="text-danger mt-2">Campo requerido</p>
+            }
         </div>
-        <input class="btn btn-success mt-3" type="submit" value="Enviar" [disabled]="!userForm.valid">
+        <input class="btn btn-outline-info mt-4" type="submit" value={{valor}} [disabled]="!userForm.valid">
 
     </form>
-</section>
+    </section>

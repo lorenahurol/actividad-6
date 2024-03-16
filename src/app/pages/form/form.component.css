@@ -1,0 +1,14 @@
+/* Estilos de los campos validos e invalidos */
+
+input.ng-invalid.ng-touched {
+    border: solid 2px red;
+}
+
+input.ng-valid.ng-touched {
+    border: solid 2px lightgreen;
+}
+
+.text-danger {
+    font-size: 80%;
+    margin: 0px 0px 0px 12px;
+}

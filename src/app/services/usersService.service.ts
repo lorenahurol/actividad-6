@@ -30,12 +30,12 @@ export class UsersServiceService {
   }
 
   // Insertar los datos del formulario para crear un nuevo usuario:
-  create(formValue: IUser): Promise<IUser> {
+  create(formValue: IUser): Promise<any> {
     return lastValueFrom(this.httpClient.post<IUser>(this.baseUrl, formValue))
   }
 
   // Metodo update para actualizar los datos del usuario:
-  update(formValue: IUser): Promise<IUser> {
+  update(formValue: IUser): Promise<any> {
     return lastValueFrom(this.httpClient.put<IUser>(`${this.baseUrl}/${formValue._id}`, formValue ))
   }
 }

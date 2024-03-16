@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersServiceService } from '../../services/usersService.service';
 import { BotoneraComponent } from '../../components/botonera/botonera.component';
@@ -7,7 +7,7 @@ import { BotoneraComponent } from '../../components/botonera/botonera.component'
 @Component({
   selector: 'app-user-view',
   standalone: true,
-  imports: [BotoneraComponent],
+  imports: [RouterLink, BotoneraComponent],
   templateUrl: './user-view.component.html',
   styleUrl: './user-view.component.css'
 })
@@ -18,7 +18,8 @@ export class UserViewComponent {
   userService = inject(UsersServiceService)
 
   // Pintar un usuario de tipo IUser:
-  oneUser!: IUser;
+  // Añado "| undefined " para solucionar error core.mjs:7494 ERROR TypeError: Cannot read properties of undefined (reading 'image') at UserViewComponent_Template (user-view.component.html:5:40)
+  oneUser!: IUser | undefined;
 
   ngOnInit(): void {
     // Cada vez que se cambia la ruta, se llama a la funcion params (Observable):
