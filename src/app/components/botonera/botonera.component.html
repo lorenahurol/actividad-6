@@ -1,17 +1,12 @@
 <div class="d-flex justify-content-between gap-2">
     <!-- Indicar donde se va a ver cada boton -->
     @if(parent === 'card') {
-        <a class="btn btn-secondary" [routerLink]="['/user', idUser]">Ver detalle</a>
+        <a class="btn btn-sm btn-info text-white d-flex align-items-center justify-content-center" [routerLink]="['/user', idUser]"><span><i class="bi bi-search text-white me-2 align-items-center"></i></span>Detalle</a>
     }@else if (parent === 'view') {
-        <a class="btn btn-secondary" [routerLink]="['/home']">Volver a listado</a>
+        <a class="btn btn-sm btn-info text-white d-flex align-items-center justify-content-center" [routerLink]="['/home']"><span><i class="bi bi-arrow-return-left text-white me-2 align-items-center"></i></span>Volver a listado</a>
     }
     
     <!-- Botones comunes para ambos componentes -->
-    <a class="btn btn-warning" [routerLink]="['/update', 'user', idUser ]">Actualizar</a>
-    <button class="btn btn-danger" (click)="deleteUser('idUser')">Borrar</button>
+    <a class="btn btn-sm btn-info text-white d-flex align-items-center justify-content-center" [routerLink]="['/update', 'user', idUser ]"><span><i class="bi bi-arrow-repeat text-white me-2 align-items-center"></i></span>Actualizar</a>
+    <button class="btn btn-sm btn-info text-white d-flex align-items-center justify-content-center" (click)="deleteUser('idUser')"><span><i class="bi bi-trash text-white me-2 align-items-center"></i></span>Borrar</button>
 </div>
-
-<!-- Por hacer 
-    1. Maquetar la botonera con iconos para la vista card
-    2. Maquetar la botonera para la vista view.
--->

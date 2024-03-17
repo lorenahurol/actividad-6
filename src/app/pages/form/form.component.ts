@@ -142,9 +142,9 @@ export class FormComponent {
 
 /** 
  * 1. Validar Url imagen
- * 3. Maquetar
- * 4. Paginacion
- */
+ * 2. Active Links
+ * 3. Maquetar Estilos
+*/
 
    
 

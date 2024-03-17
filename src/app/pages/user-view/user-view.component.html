@@ -12,10 +12,12 @@
                 <hr>
                 <h5>Nombre de usuario: {{oneUser?.username}}</h5>
                 <p>Email: {{oneUser?.email}}</p>
+                <!-- Botonera: Eliminar, Actualizar, Volver a Listado -->
+                <!-- Ocultar boton de Ver Detalle-->
+                <div class="card-body d-flex p-0">
+                    <app-botonera [parent]="'view'" [idUser]="oneUser?._id"></app-botonera>
+                </div>
             </div>
         </div>
-        <!-- Botonera: Eliminar, Actualizar, Volver a Listado -->
-        <!-- Ocultar boton de Ver Detalle-->
-        <app-botonera [parent]="'view'" [idUser]="oneUser?._id"></app-botonera>
     </div>
 </section>
