@@ -44,10 +44,11 @@ export class FormComponent {
       ]),
       email: new FormControl('', [
         Validators.required,
-        Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$") // Email valido
+        Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$") // Email válido
       ]),
       image: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^(ftp|http|https):\/\/[^ "]+$/) // Url válida
       ])
     }, [])
   }
@@ -82,7 +83,8 @@ export class FormComponent {
             Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
           ]),
           image: new FormControl(response.image, [
-            Validators.required
+            Validators.required,
+            Validators.pattern(/^(ftp|http|https):\/\/[^ "]+$/)
           ])
         }, [])
       }
@@ -139,12 +141,5 @@ export class FormComponent {
 
   }
 }
-
-/** 
- * 1. Validar Url imagen
- * 2. Active Links
- * 3. Maquetar Estilos
-*/
-
    
 

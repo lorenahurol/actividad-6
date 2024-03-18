@@ -7,12 +7,12 @@
     }
 
     <div class="d-flex justify-content-center align-items-center">
-        <button class="btn btn-outline-info text-dark" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+        <button class="btn btn-outline-info text-dark fw-semibold" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
         <!-- Array de botones con número de página -->
     @for (pageNum of getPageNumbers(); track pageNum) {
-        <button class="btn btn-info text-white mx-1" (click)="goToPage(pageNum)">{{ pageNum }}</button>
+        <button class="btn btn-outline-info text-dark fw-semibold mx-1" (click)="goToPage(pageNum)">{{ pageNum }}</button>
         }
 
-        <button class="btn btn-outline-info text-dark" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+        <button class="btn btn-outline-info text-dark fw-semibold" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
     </div>    
 </div>

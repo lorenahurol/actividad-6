@@ -54,8 +54,11 @@
             @if(checkControl("image", "required")) {
             <p class="text-danger mt-2">Campo requerido</p>
             }
+            @if(checkControl("image", "pattern")) {
+            <p class="text-danger mt-2">Introduce una url de imagen válida</p>
+            }
         </div>
-        <input class="btn btn-outline-info mt-4" type="submit" value={{valor}} [disabled]="!userForm.valid">
+        <input class="btn btn-outline-info fw-bold mt-4" type="submit" value={{valor}} [disabled]="!userForm.valid">
 
     </form>
     </section>
