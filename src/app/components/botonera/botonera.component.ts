@@ -45,7 +45,7 @@ export class BotoneraComponent {
             Swal.fire({
               icon: "error",
               title: "Error",
-              text: "Ha habido un problema. Intentálo de nuevo"
+              text: "El usuario que intentas borrar no existe"
             })
           }
         }

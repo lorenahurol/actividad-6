@@ -29,7 +29,7 @@ export class UserViewComponent {
       try {
         this.oneUser = await this.userService.getById(id)
       } catch (error) {
-        console.log(error)
+        console.log("No se ha podido recuperar el usuario", error)
       }
     })
   }
